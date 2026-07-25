@@ -8,7 +8,7 @@ Photoshop やアップスケールなどで「AIで生成」タグが外れた�
 > **JA:** 誠実な自己申告専用。実際に AI で作った画像向け。実写などへの偽装用途ではありません。
 
 <p align="center">
-  <img src="assets/Footnote_icon.png" alt="Footnote icon" width="160" height="160">
+  <img src="assets/Footnote_social_16x9.png" alt="Footnote — Re-attach AI provenance before upload" width="800">
 </p>
 
 ## Why / なぜ
@@ -67,6 +67,8 @@ Issuer trust lists are **not** required for that UI (as of 2026-07-22 experiment
 | `Footnote.app` | Built droplet (script inside `Contents/Resources/`) |
 | `assets/Footnote_icon.png` | App icon master (1024²) |
 | `assets/Footnote.icns` | macOS icon (applied as `droplet.icns` on build) |
+| `assets/Footnote_social_16x9.png` | GitHub / OG link card (16:9, Nano Banana Pro) |
+| `assets/Footnote_social_1280x640.png` | GitHub Social Preview upload (1280×640) |
 | `scripts/build_macos_app.sh` | Build versioned + stable `.app` (+ icon) |
 | `scripts/deploy_to_applications.sh` | Overwrite `/Applications/Footnote.app` |
 

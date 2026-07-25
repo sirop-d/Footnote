@@ -34,15 +34,26 @@ chmod +x "$OUT_VERSIONED/Contents/Resources/Footnote.sh"
 cp -R "$OUT_VERSIONED" "$OUT_STABLE"
 
 # Custom app icon (assets/Footnote.icns → droplet.icns)
+# osacompile also emits Assets.car which can override .icns in Finder — remove it.
 ICON_ICNS="$ROOT/assets/Footnote.icns"
-if [[ -f "$ICON_ICNS" ]]; then
-  for APP in "$OUT_VERSIONED" "$OUT_STABLE"; do
+for APP in "$OUT_VERSIONED" "$OUT_STABLE"; do
+  rm -f "$APP/Contents/Resources/Assets.car"
+  if [[ -f "$ICON_ICNS" ]]; then
     cp -f "$ICON_ICNS" "$APP/Contents/Resources/droplet.icns"
-    touch "$APP"
-  done
-  echo "Icon: $ICON_ICNS → droplet.icns"
+  fi
+  # Stable display identity
+  /usr/libexec/PlistBuddy -c 'Set :CFBundleName Footnote' "$APP/Contents/Info.plist" 2>/dev/null \
+    || /usr/libexec/PlistBuddy -c 'Add :CFBundleName string Footnote' "$APP/Contents/Info.plist"
+  /usr/libexec/PlistBuddy -c 'Set :CFBundleDisplayName Footnote' "$APP/Contents/Info.plist" 2>/dev/null \
+    || /usr/libexec/PlistBuddy -c 'Add :CFBundleDisplayName string Footnote' "$APP/Contents/Info.plist"
+  /usr/libexec/PlistBuddy -c 'Set :CFBundleIdentifier jp.sirop.Footnote' "$APP/Contents/Info.plist" 2>/dev/null \
+    || /usr/libexec/PlistBuddy -c 'Add :CFBundleIdentifier string jp.sirop.Footnote' "$APP/Contents/Info.plist"
+  touch "$APP" "$APP/Contents/Info.plist"
+done
+if [[ -f "$ICON_ICNS" ]]; then
+  echo "Icon: $ICON_ICNS → droplet.icns (Assets.car removed)"
 else
-  echo "Note: no $ICON_ICNS — keeping osacompile default icon" >&2
+  echo "Note: no $ICON_ICNS — kept osacompile default icns; Assets.car still removed" >&2
 fi
 
 echo "Built: $OUT_VERSIONED"
