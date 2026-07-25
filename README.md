@@ -2,12 +2,16 @@
 
 Re-attach **C2PA provenance** to AI-generated images so platforms like **X (Twitter)** can show the **“✨ Made with AI”** label again — after Photoshop, upscaling, or other tools strip the original tag.
 
-> Honest disclosure only. For images you actually made with AI. Not for faking labels on photos that are not AI-generated.
+Photoshop やアップスケールなどで「AIで生成」タグが外れた画像に、**アップロード直前**へ標準形式の C2PA 来歴を付け直す macOS 用の小さな道具です（ドロップレット + CLI）。出力名は `sample_ai.jpg` のように短い `_ai` サフィックス。
 
-## Why
+> **EN:** Honest disclosure only. For images you actually made with AI. Not for faking labels on photos that are not AI-generated.  
+> **JA:** 誠実な自己申告専用。実際に AI で作った画像向け。実写などへの偽装用途ではありません。
+
+## Why / なぜ
 
 Finishing passes (retouch, upscale, re-export) often drop embedded AI provenance. Footnote writes a standard C2PA manifest (`c2pa.created` + IPTC `trainedAlgorithmicMedia`) so you can declare that honestly **right before upload**.
 
+仕上げ工程で埋め込み来歴が消えることがあるので、X などで「✨AIで生成」が再び点灯する標準形式を、アップ直前に自己申告として書き込みます。
 ## Requirements (macOS)
 
 - [Homebrew](https://brew.sh)
