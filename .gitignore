@@ -1,0 +1,18 @@
+# Vault shelf (local-only; not for public GitHub)
+*00_*
+*ログ/
+*作業ログ/
+*bak/
+*作業temp/
+📐*
+🍋*
+.DS_Store
+**/.DS_Store
+_test_out/
+
+# Built bundles (rebuild with scripts/build_macos_app.sh)
+Footnote.app/
+Footnote_v*.app/
+
+# Obsidian / editor
+.obsidian/
