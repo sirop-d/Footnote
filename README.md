@@ -7,6 +7,10 @@ Photoshop やアップスケールなどで「AIで生成」タグが外れた�
 > **EN:** Honest disclosure only. For images you actually made with AI. Not for faking labels on photos that are not AI-generated.  
 > **JA:** 誠実な自己申告専用。実際に AI で作った画像向け。実写などへの偽装用途ではありません。
 
+<p align="center">
+  <img src="assets/Footnote_icon.png" alt="Footnote icon" width="160" height="160">
+</p>
+
 ## Why / なぜ
 
 Finishing passes (retouch, upscale, re-export) often drop embedded AI provenance. Footnote writes a standard C2PA manifest (`c2pa.created` + IPTC `trainedAlgorithmicMedia`) so you can declare that honestly **right before upload**.
@@ -61,7 +65,9 @@ Issuer trust lists are **not** required for that UI (as of 2026-07-22 experiment
 | `Footnote.sh` | Stable CLI name (copy of current version) |
 | `droplet_src_v003.applescript` | Droplet source (`path to me` → bundled script) |
 | `Footnote.app` | Built droplet (script inside `Contents/Resources/`) |
-| `scripts/build_macos_app.sh` | Build versioned + stable `.app` |
+| `assets/Footnote_icon.png` | App icon master (1024²) |
+| `assets/Footnote.icns` | macOS icon (applied as `droplet.icns` on build) |
+| `scripts/build_macos_app.sh` | Build versioned + stable `.app` (+ icon) |
 | `scripts/deploy_to_applications.sh` | Overwrite `/Applications/Footnote.app` |
 
 ## Disclaimer

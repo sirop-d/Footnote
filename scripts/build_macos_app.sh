@@ -33,6 +33,18 @@ chmod +x "$OUT_VERSIONED/Contents/Resources/Footnote.sh"
 # Dock固定名（版なし）
 cp -R "$OUT_VERSIONED" "$OUT_STABLE"
 
+# Custom app icon (assets/Footnote.icns → droplet.icns)
+ICON_ICNS="$ROOT/assets/Footnote.icns"
+if [[ -f "$ICON_ICNS" ]]; then
+  for APP in "$OUT_VERSIONED" "$OUT_STABLE"; do
+    cp -f "$ICON_ICNS" "$APP/Contents/Resources/droplet.icns"
+    touch "$APP"
+  done
+  echo "Icon: $ICON_ICNS → droplet.icns"
+else
+  echo "Note: no $ICON_ICNS — keeping osacompile default icon" >&2
+fi
+
 echo "Built: $OUT_VERSIONED"
 echo "Built: $OUT_STABLE"
 echo "Stable CLI: $ROOT/Footnote.sh"
