@@ -67,7 +67,7 @@ Issuer trust lists are **not** required for that UI (as of 2026-07-22 experiment
 | `Footnote.app` | Built droplet (script inside `Contents/Resources/`) |
 | `assets/Footnote_icon.png` | App icon master (1024²) |
 | `assets/Footnote.icns` | macOS icon (applied as `droplet.icns` on build) |
-| `assets/Footnote_social_16x9.png` | GitHub / OG link card (16:9, Nano Banana Pro) |
+| `assets/Footnote_social_16x9.png` | GitHub / OG link card (16:9, icon + typography composite v002) |
 | `assets/Footnote_social_1280x640.png` | GitHub Social Preview upload (1280×640) |
 | `.github/social-preview.png` | Same 1280×640 copy for discoverability |
 | `scripts/build_macos_app.sh` | Build versioned + stable `.app` (+ icon) |
